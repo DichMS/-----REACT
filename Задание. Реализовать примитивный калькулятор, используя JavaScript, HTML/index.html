@@ -9,12 +9,9 @@
 <body>
 
 <div class="calculator">
-    <!-- Поле для отображения текущей операции -->
     <div id="operation-label" class="operation-label"></div>
-    <!-- Поле ввода, только для отображения результата -->
     <input type="text" id="display" class="display" readonly>
     <div class="buttons">
-        <!-- Numbers -->
         <button class="button" onclick="appendValue('1')">1</button>
         <button class="button" onclick="appendValue('2')">2</button>
         <button class="button" onclick="appendValue('3')">3</button>
@@ -31,7 +28,7 @@
         <button class="button" onclick="appendValue('*')">*</button>
         
         <button class="button" onclick="appendValue('0')">0</button>
-        <button class="button" onclick="appendValue(',')">,</button> <!-- Замена точки на запятую -->
+        <button class="button" onclick="appendValue(',')">,</button>
         <button class="button" onclick="calculate()">=</button>
         <button class="button" onclick="appendValue('/')">/</button>
         
@@ -43,7 +40,6 @@
     <h3>History</h3>
 </div>
 
-<!-- Подключаем jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="script.js"></script>
 </body>

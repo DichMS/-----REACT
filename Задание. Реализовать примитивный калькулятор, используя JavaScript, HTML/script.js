@@ -1,20 +1,18 @@
-let displayValue = "";           // Текущее значение на дисплее
-let operationLabel = "";          // Текущая операция, отображаемая сверху
-let currentOperator = null;       // Оператор (+, -, *, /)
-let firstOperand = null;          // Первый операнд для операции
-let awaitingSecondOperand = false; // Флаг для ожидания второго операнда
+let displayValue = "";
+let operationLabel = "";
+let currentOperator = null;
+let firstOperand = null;
+let awaitingSecondOperand = false;
 
 function appendValue(value) {
     const display = $('#display');
 
-    // Если начинаем новый расчет после "=" и вводится число
     if (awaitingSecondOperand && !isNaN(value)) {
-        displayValue = ""; // Очищаем дисплей
-        operationLabel = ""; // Очищаем метку операции
+        displayValue = "";
+        operationLabel = "";
         awaitingSecondOperand = false;
     }
 
-    // Если вводится оператор
     if (['+', '-', '*', '/'].includes(value)) {
         if (firstOperand === null) {
             firstOperand = parseFloat(displayValue);
@@ -31,7 +29,6 @@ function appendValue(value) {
         return;
     }
 
-    // Проверка для десятичной точки
     if (value === ',') {
         value = '.';
     }
@@ -57,7 +54,6 @@ function calculate() {
         const secondOperand = parseFloat(displayValue);
         const result = performCalculation(currentOperator, firstOperand, secondOperand);
         displayValue = String(result);
-        // Обновляем operationLabel для записи в историю
         operationLabel = `${firstOperand} ${currentOperator} ${secondOperand} = ${displayValue}`;
         addHistory(operationLabel.replace(/\./g, ','));
         $('#display').val(displayValue);
