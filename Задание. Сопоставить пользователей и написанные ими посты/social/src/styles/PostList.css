@@ -1,0 +1,14 @@
+.post-list {
+    flex: 1;
+  }
+  
+  .post-card {
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  h3
+  {
+    text-align: center;
+  }
+  
